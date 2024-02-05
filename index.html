@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test task</title>
+</head>
+<body>
+    <p class="type"></p>
+    <p class="os"></p>
+    <p class="browser"></p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
+    <script src="clientjs-master/dist/client.min.js"></script>
+    <script>
+        const ClientJS = window.ClientJS;
+        const client = new ClientJS();
+        const userAgent = navigator.userAgent;
+        let detect = new MobileDetect(window.navigator.userAgent);
+
+        if(detect.mobile() && !detect.tablet()){
+            document.querySelector(".type").innerText = `You are using a phone.`;
+        } else if(detect.tablet()){
+            document.querySelector(".type").innerText = "You are using a tablet.";
+        } else{
+            document.querySelector(".type").innerText = "You are using a desktop.";
+        }
+        const os = client.getOS();
+        const osType = userAgent.split("; ")[userAgent.split("; ").length - 2];
+        const osVersion = client.getOSVersion();
+        document.querySelector(".os").innerText = `Your OS is ${os}(${osType}), version: ${osVersion}.`;
+
+        const browser = client.getBrowserData().browser.name;
+        const browserVersion = client.getBrowserData().browser.version;
+        document.querySelector(".browser").innerText = `Your browser is ${browser}, version: ${browserVersion}.`;
+        if(navigator.userAgentData.brands[2].brand.toLowerCase().includes("yandex")){
+            document.querySelector(".browser").innerText = `Your browser is ${navigator.userAgentData.brands[2].brand}, version: ${navigator.userAgentData.brands[2].version}.`;
+        }
+        
+    </script>
+</body>
+</html>
