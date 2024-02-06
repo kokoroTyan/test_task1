@@ -14,10 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
     <script src="clientjs-master/dist/client.min.js"></script>
     <script>
+        alert("test")
         const ClientJS = window.ClientJS;
         const client = new ClientJS();
         const userAgent = navigator.userAgent;
-        const wurfl = new WURFL()
+        //const wurfl = new WURFL()
+        alert(`${WURFL.complete_device_name}`)
         
         let detect = new MobileDetect(window.navigator.userAgent);
 
