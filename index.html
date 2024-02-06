@@ -10,19 +10,19 @@
     <p class="os"></p>
     <p class="browser"></p>
 
+    <script src="https://wurfl.io/wurfl.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
     <script src="clientjs-master/dist/client.min.js"></script>
     <script>
         const ClientJS = window.ClientJS;
         const client = new ClientJS();
         const userAgent = navigator.userAgent;
-        if(userAgent.match(/Samsung/i){
-            alert("u using samsung")
-        } else {
-            alert("u using not samsung")
-        }
+        const wurfl = new WURFL()
+        
         let detect = new MobileDetect(window.navigator.userAgent);
 
+        let deviceInfo = wurfl.getDeviceInfo(userAgent);
+        alert(deviceInfo.complete_device_name);
         if(detect.mobile() && !detect.tablet()){
             document.querySelector(".type").innerText = `You are using a phone.`;
         } else if(detect.tablet()){
