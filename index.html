@@ -17,12 +17,12 @@
         const ClientJS = window.ClientJS;
         const client = new ClientJS();
         const userAgent = navigator.userAgent;
-        const wurfl = new WURFL()
+        //const wurfl = new WURFL()
         
         let detect = new MobileDetect(window.navigator.userAgent);
 
-        let deviceInfo = wurfl.getDeviceInfo(userAgent);
-        alert(deviceInfo.complete_device_name);
+        //let deviceInfo = wurfl.getDeviceInfo(userAgent);
+        //alert(deviceInfo.complete_device_name);
         if(detect.mobile() && !detect.tablet()){
             document.querySelector(".type").innerText = `You are using a phone.`;
         } else if(detect.tablet()){
