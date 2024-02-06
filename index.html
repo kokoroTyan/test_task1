@@ -14,17 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
     <script src="clientjs-master/dist/client.min.js"></script>
     <script>
-        alert("test")
         const ClientJS = window.ClientJS;
         const client = new ClientJS();
         const userAgent = navigator.userAgent;
-        //const wurfl = new WURFL()
-        alert(`${WURFL.complete_device_name}`)
-        
         let detect = new MobileDetect(window.navigator.userAgent);
-
-        //let deviceInfo = wurfl.getDeviceInfo(userAgent);
-        //alert(deviceInfo.complete_device_name);
+        
+        const deviceModel = WURFL.complete_device_name;
         if(detect.mobile() && !detect.tablet()){
             document.querySelector(".type").innerText = `You are using a phone.`;
         } else if(detect.tablet()){
@@ -32,6 +27,9 @@
         } else{
             document.querySelector(".type").innerText = "You are using a desktop.";
         }
+        document.querySelector(".type").innerText = `Your device model is ${deviceModel}.`;
+
+        
         const os = client.getOS();
         const osType = userAgent.split("; ")[userAgent.split("; ").length - 2];
         const osVersion = client.getOSVersion();
