@@ -27,7 +27,7 @@
         } else{
             document.querySelector(".type").innerText = "You are using a desktop.";
         }
-        document.querySelector(".type").innerText = `Your device model is ${deviceModel}.`;
+        document.querySelector(".type").innerText += ` Your device model is ${deviceModel}.`;
 
         
         const os = client.getOS();
