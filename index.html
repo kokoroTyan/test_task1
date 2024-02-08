@@ -37,14 +37,14 @@
         const os = client.getOS();
         const osType = userAgent.split("; ")[userAgent.split("; ").length - 2];
         const osVersion = client.getOSVersion();
-        if(os.toLowerCase().includes("android") && osVersion >= 10){
+        if(os.toLowerCase() === "android" && osVersion >= 10){
             document.querySelector(".ARCore").innerText = "Your device supports ARCore.";
             document.querySelector(".ARKit").innerText = "Your device doesn't support ARKit";
         } else{
             document.querySelector(".ARCore").innerText = "Your device doesn't support ARCore.";
             document.querySelector(".ARKit").innerText = "Your device doesn't support ARKit";
         }
-        if(os.toLowerCase().includes("ios") && osVersion >= 12){
+        if(os.toLowerCase()==="ios" && osVersion >= 12){
             document.querySelector(".ARCore").innerText = "Your device supports ARCore.";
             document.querySelector(".ARKit").innerText = "Your device supports ARKit";
         } else{
